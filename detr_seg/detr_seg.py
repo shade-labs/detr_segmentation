@@ -35,8 +35,10 @@ def predict(image: Image):
 class RosIO(Node):
     def __init__(self):
         super().__init__('minimal_subscriber')
-        self.declare_parameter('pub_image', False)
-        self.declare_parameter('pub_boxes', True)
+        self.declare_parameter('pub_image', True)
+        self.declare_parameter('pub_pixels', True)
+        self.declare_parameter('pub_detections', True)
+        self.declare_parameter('pub_masks', True)
         self.image_subscription = self.create_subscription(
             Image,
             '/detr_seg/sub/image_raw',

@@ -41,7 +41,7 @@ class RosIO(Node):
         self.declare_parameter('pub_masks', True)
         self.image_subscription = self.create_subscription(
             Image,
-            '/detr_seg/sub/image_raw',
+            '/detr_seg/image_raw',
             self.listener_callback,
             10
         )

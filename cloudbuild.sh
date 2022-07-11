@@ -1,8 +1,8 @@
 declare -a ROS_VERSIONS=( "foxy" "galactic" "humble" "rolling" )
 
-ORGANIZATION="microsoft"
-MODEL_NAME="<name>"
-declare -a MODEL_VERSIONS=( "<model versions here>" )
+ORGANIZATION="facebook"
+MODEL_NAME="detr"
+declare -a MODEL_VERSIONS=( "resnet-50-panoptic" "resnet-101-panoptic" )
 
 for VERSION in "${ROS_VERSIONS[@]}"
 do

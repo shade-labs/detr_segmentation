@@ -7,14 +7,13 @@ from palette import ade_palette
 import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import Image
-from vision_msgs.msg import Detection2DArray, Detection2D, ObjectHypothesisWithPose
 from std_msgs.msg import String
 from cv_bridge import CvBridge
 
 ALGO_VERSION = os.getenv("MODEL_NAME")
 
 if not ALGO_VERSION:
-    ALGO_VERSION = '<default here>'
+    ALGO_VERSION = 'facebook/detr-resnet-50-panoptic'
 
 
 def predict(image: Image):
@@ -40,32 +39,32 @@ class RosIO(Node):
         self.declare_parameter('pub_boxes', True)
         self.image_subscription = self.create_subscription(
             Image,
-            '/<name>/sub/image_raw',
+            '/detr_seg/sub/image_raw',
             self.listener_callback,
             10
         )
 
         self.image_publisher = self.create_publisher(
             String,
-            '/<name>/pub/image',
+            '/detr_seg/pub/image',
             1
         )
     
         self.pixels_publisher = self.create_publisher(
             String,
-            '/<name>/pub/pixels',
+            '/detr_seg/pub/pixels',
             1
         )
 
         self.detection_publisher = self.create_publisher(
             String,
-            '/<name>/pub/detections',
+            '/detr/pub/detections',
             1
         )
 
         self.mask_publisher = self.create_publisher(
             String,
-            '/<name>/pub/mask',
+            '/detr_seg/pub/mask',
             1
         )
 
@@ -113,7 +112,7 @@ class RosIO(Node):
 
 
 def main(args=None):
-    print('<name> Started')
+    print('DETR Segmentation Started')
 
     rclpy.init(args=args)
 

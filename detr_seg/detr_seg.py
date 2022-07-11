@@ -48,25 +48,25 @@ class RosIO(Node):
 
         self.image_publisher = self.create_publisher(
             String,
-            '/detr_seg/pub/image',
+            '/detr_seg/image',
             1
         )
     
         self.pixels_publisher = self.create_publisher(
             String,
-            '/detr_seg/pub/pixels',
+            '/detr_seg/pixels',
             1
         )
 
         self.detection_publisher = self.create_publisher(
             String,
-            '/detr/pub/detections',
+            '/detr/detections',
             1
         )
 
         self.mask_publisher = self.create_publisher(
             String,
-            '/detr_seg/pub/mask',
+            '/detr_seg/mask',
             1
         )
 

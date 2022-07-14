@@ -3,9 +3,15 @@
 <package format="3">
   <name>detr_seg_ros2</name>
   <version>0.0.0</version>
-  <description>TODO: Package description</description>
+  <description>DEtection TRansformer (DETR) introduces a set-based global 
+  loss that forces unique predictions via bipartite matching, 
+  and a transformer encoder-decoder architecture. 
+  Given a fixed small set of learned object queries, DETR reasons about the relations of 
+  the objects and the global image context to directly output the final set of predictions in parallel. 
+  The new model is conceptually simple and does not require a specialized library, 
+  unlike many other modern detectors. We attach a semantic segmentation head.</description>
   <maintainer email="support@shaderobotics.com">Shade Robotics</maintainer>
-  <license>TODO: License declaration</license>
+  <license>apache-2.0</license>
 
   <test_depend>ament_copyright</test_depend>
   <test_depend>ament_flake8</test_depend>

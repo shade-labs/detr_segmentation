@@ -25,9 +25,9 @@ RUN apt update && \
     echo "ros2 run detr_seg_ros2 detr_seg_ros2" >> /home/shade/shade_ws/start.sh && \
     chmod +x ./start.sh
 
-COPY . ./src/<name>
+COPY . ./src/detr_seg
 
-RUN pip3 install ./src/<name> && \
+RUN pip3 install ./src/detr_seg && \
     : "Install the model" && \
     python3 -c "from transformers import AutoFeatureExtractor; AutoFeatureExtractor.from_pretrained('${MODEL_NAME}')" && \
     colcon build

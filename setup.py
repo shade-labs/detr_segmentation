@@ -17,6 +17,7 @@ setup(
         'torch',
         'cython',
         'datasets',
+        'timm',
         "Pillow",
         'charset-normalizer==2.0.0',
         'packaging==20.9',
